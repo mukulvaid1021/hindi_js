@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur code | DOM</title>
+</head>
+<body style="background-color: black; color: aliceblue;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(langname) { //create func with parameter langname
+        const li = document.createElement('li');// it creates empty list
+        li.innerHTML = `${langname}`// when it call it take value and put in new empty list
+        document.querySelector('.language').appendChild(li)//it finds the classname and put it in name
+    }
+    addLanguage("html");
+    addLanguage("Javascript");
+
+    function addOptiLanguage(langname) {
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langname))
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptiLanguage('golang')
+
+    const thirdlang = document.querySelector("li:nth-child(3)")
+    const newli = document.createElement('li')
+    newli.textContent = "Mojo"
+    thirdlang.replaceWith(newli)
+
+    const secondlang = document.querySelector("li:nth-child(2)")
+    const newli2 = document.createElement('li')
+    newli2.textContent = "c++"
+    secondlang.replaceWith(newli2)
+
+    const fourthlang = document.querySelector("li:nth-child(4)")
+    const newli3 = document.createElement('li')
+    newli3.textContent = "Typescript"
+    fourthlang.replaceWith(newli3)
+</script>
+</html>
