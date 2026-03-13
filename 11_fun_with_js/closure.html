@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body style="background-color: black;">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+</body>
+<script>
+    function outer() {
+        let username = "hitesh"
+
+        console.log("OUTER", secret); //error (not accessible)
+
+        function inner() {
+            let secret = "my123"
+        
+            console.log("inner", username); // inner hitesh
+        }
+
+        function innerTwo() {
+            console.log("innerTwo", username); // innertwo hitesh
+            console.log(secret);// not print
+        }
+
+        inner()
+        innerTwo()
+    }
+      outer()
+    console.log("Too outer",username);
+</script>
+<script>
+    // document.getElementById("orange").onclick = function() {
+    //     document.body.style.backgroundColor = `orange`
+    // }
+
+    // document.getElementById("green").onclick = function() {
+    //     document.body.style.backgroundColor = `green`
+    // }
+
+    function clickHandler(color){
+        document.body.style.backgroundColor = `${color}`
+    }
+    document.getElementById('orange').onclick = clickHandler("orange")
+    document.getElementById('green').onclick = clickHandler("green")
+</script>
+</html>
+
+<!-- Inner function → outer variables access kar sakta hai
+
+Outer scope → inner variables access nahi kar sakta -->
+
+<!-- 
+Closure tab banta hai jab inner function outer function ke variables ko remember karta hai, even after outer function execute ho chuka ho. -->
